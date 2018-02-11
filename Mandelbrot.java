@@ -8,17 +8,120 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
+  * @author Nicholas Jacquet
+  * Notes:
+  *
+  *     The Mandelbrot Set is the visual representation 
+  *     of an iterated function on the complex plane.
   * 
-  * @author Nicholas
+  *     ~Simple function example~
+  * 
+  *     INPUT -> FUNCTION -> OUTPUT
+  *                f(x)
+  *             f(INPUT) = OUTPUT       
+  *          
+  *     ~Iterated function example~
+  *     
+  * [Iterated] f(x) = x + 1
+  *         f(2) = 2 + 1 = 3;   // from here on down the 
+  *         f(3) = 3 + 1 = 4;   // OUTPUT of the function      
+  *         f(4) = 4 + 1 = 5;   // is then used as INPUT
+  *         f(5) = 5 + 1 = 6;   // of the next FUNCTION  
+  *     
+  * [Iterated] f(x) = x^2 + c             [say c is 2]
+  *         f(   2) =       4 + 2 = 6
+  *         f(   6) =      36 + 2 = 38
+  *         f(  38) =    1444 + 2 = 1446
+  *         f(1448) = 2090916 + 2 = 2090918
+  *                  [OUTPUT DIVERGENCE]
   *
-  *	Notes:
-  *
-  *		What events are there within this program?
-  *
-  *		java.awt.image
-  *			-
-  *
-  *
+  * [Iterated] f(x) = x^2 + c             [say c is 0.1]
+  *         f(      0.1) =               0.01 + 0.1 = 0.11
+  *         f(     0.11) =             0.0121 + 0.1 = 0.1121
+  *         f(   0.1121) =         0.01256641 + 0.1 = 0.11256641
+  *         f(0.1256641) = 0.0126711966602881 + 0.1 = 0.112671196660288   
+  *                  [OUTPUT CONVERGENCE]
+  * 
+  * 
+  * The idea is that numbers between -2 and 0 behave differently!
+  * 
+  *     Negative * Negative = Positive
+  *     (example:)
+  *     
+  *     -2 * -3 = 6
+  *     -5 ^  2 = 25
+  *     
+  *     Adding a Negative = Subtracting
+  *     (example:) 
+  *     5 + -6 = 5 - 6
+  * 
+  * 
+  * [Iterated] f(x) = x^2 + c             [say c is -1.5]
+  *     f(       -1.5) = 2.25              - 1.5 =  0.75
+  *     f(       0.75) = 0.5625            - 1.5 = -0.9375
+  *     f(    -0.9375) = 0.87890625        - 1.5 = -0.62109375
+  *     f(-0.62109375) = 0.385757446289063 - 1.5 = -1.11424255371094
+  * 
+  * References:
+  * 
+  *     ~The Amazing Mandelbrot Set~
+  *     https://www.youtube.com/watch?v=0YaYmyfy9Z4
+  * 
+  *     -2 & -1 both behave very strangely when iterated thru:
+  *     
+  *     [say c is -2] ~the outputs when iterating will forever be 2
+  *     [say c is -1] ~the outputs when iterating will flip flop back and forth as  0 & -1
+  *     
+  *     
+  *     
+  *     
+  * ~Complex Numbers also cause strange things to happen when iterated thru:    
+  *     
+  *     All negative numbers have positive squares:
+  *         
+  *             2^2 = 4  &&  -2^2 = 4
+  *        
+  *     (-2 & 2 are both squareroots of 4)
+  *     
+  *     
+  *     What is the squareroot of -4? (hint: The squareroot of any negative number is an imaginary number)
+  * 
+  * 
+  * ~IMAGINARY NUMBER is the square root of a negative number
+  * ~COMPLEX   NUMBER is the sum of an IMAGINARY NUMBER and REAL NUMBER
+  *     
+  *   examples: 
+  *   
+  *     (Math.Sqrt(-4)    )  ~equals a IMAGINARY NUMBER
+  *     (Math.Sqrt(-4) + 3)  ~equals a COMPLEX   NUMBER
+  *     
+  *     
+  * So what can I do with this?    
+  *     
+  *               -4  = 4 * -1
+  *     Math.Sqrt(-4) = Math.Sqrt(4 * -1)
+  *     Math.Sqrt(-4) = Math.Sqrt(4) * Math.Sqrt(-1)
+  *     Math.Sqrt(-4) = 2 * Math.Sqrt(-1)
+  *     
+  *     
+  *=====================================================================
+  *     
+  *     COMPLEX  = (REAL + IMAGINARY)   
+  *  
+  *       example: (3 + Math.Sqrt(-4))
+  * standard form: (3 + (2*(Math.Sqrt(-1)))
+  *            or: (3 + 2i)                      [i = Math.Sqrt(-1)]
+  *            
+  *       ~i is an IMAGINARY NUMBER     
+  *       
+  *=====================================================================       
+  *       
+  *      General form of a complex number: 
+  *       
+  *                 A + Bi
+  *     (example:)  3 + 2i         
+  *                 
+  *            
   **/
 
 public class MandelBrot extends JFrame
