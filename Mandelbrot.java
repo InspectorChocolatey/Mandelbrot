@@ -1,4 +1,4 @@
-package com.nicholasjacquet.graphics;
+
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -22,7 +22,7 @@ import javax.swing.event.MouseInputAdapter;
   *
   **/
 
-public class MandelBrot extends JFrame
+class Mandelbrot extends JFrame
 {
 	
 	static final int WIDTH  = 900;
@@ -41,13 +41,13 @@ public class MandelBrot extends JFrame
 	// entry point
 	public static void main(String[] args) 
 	{
-		new MandelBrot();
+		new Mandelbrot();
 	}
 	// entry point
 	
 	
 	// default Contructor
-	public MandelBrot() 
+	public Mandelbrot() 
 	{
 		doIt();
 	}
