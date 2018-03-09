@@ -8,20 +8,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 
-/**
-  * 
-  * @author Nicholas
-  *
-  *	Notes:
-  *
-  *		What events are there within this program?
-  *
-  *		java.awt.image
-  *			-
-  *
-  *
-  **/
-
 class Mandelbrot extends JFrame
 {
 	
